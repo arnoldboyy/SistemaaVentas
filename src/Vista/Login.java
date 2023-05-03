@@ -1,3 +1,11 @@
+/******************************************************************** 
+Autor: Gonzalo santiago Garcia   
+* Fecha Creación: 23/03/23 *   
+* Fecha Actualización:	23/03/23 *  
+* Descripción: Programa que lea un *  
+* numero entero de 5   
+                                                             
+**********************************************************************/
 
 package Vista;
 
@@ -53,6 +61,12 @@ public class Login extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 204));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Iniciar");
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -174,6 +188,12 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // boton iniciar
+    
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
 
