@@ -9,6 +9,9 @@ Autor: Gonzalo santiago Garcia
 
 package Vista;
 
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+
 public class Login extends javax.swing.JFrame {
 
     public Login() {
@@ -16,6 +19,15 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+     public void confirmarSalida() {
+        int valor = JOptionPane.showConfirmDialog(this, "¿Está seguro de cerrar "
+                + "el programa?", "ADVERTENCIA", JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE);
+        if (valor == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,9 +37,9 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         txtPass = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        ingresar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -54,17 +66,17 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("Password");
 
-        txtCorreo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         txtPass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 204));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Iniciar");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ingresar.setBackground(new java.awt.Color(0, 0, 204));
+        ingresar.setForeground(new java.awt.Color(255, 255, 255));
+        ingresar.setText("Iniciar");
+        ingresar.setBorder(null);
+        ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ingresarActionPerformed(evt);
             }
         });
 
@@ -117,13 +129,13 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
-                            .addComponent(txtCorreo)
+                            .addComponent(txtUsuario)
                             .addComponent(txtPass)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -139,7 +151,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
@@ -149,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
@@ -189,11 +201,26 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
         // boton iniciar
     
+        String usr, password;
+        usr = txtUsuario.getText();
+        password = txtPass.getText();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+         Sistema pri = new Sistema();
+        
+        if (usr.equals("admin") && password.equals("123")) {
+            pri.setVisible(true);
+            jPanel1.setVisible(true);
+            jPanel2.setVisible(true);
+           this.hide();
+        } else {
+            JOptionPane.showMessageDialog(null, "usuario o contraseña incorrecta ");
+        }
+    
+        
+    }//GEN-LAST:event_ingresarActionPerformed
 
     public static void main(String args[]) {
 
@@ -205,7 +232,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -220,7 +247,16 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField txtCorreo;
     private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+    
+        public void actionPerformed(ActionEvent ae) {
+        Object evt = ae.getSource();
+        if (evt.equals(ingresar)) {
+            System.out.println("ingresar");
+            jPanel1.setVisible(false);
+        }
+    }
 }
+
