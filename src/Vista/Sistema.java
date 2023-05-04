@@ -302,7 +302,7 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void ConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfigActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_ConfigActionPerformed
 
     
